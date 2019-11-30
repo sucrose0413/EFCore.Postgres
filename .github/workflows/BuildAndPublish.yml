@@ -1,0 +1,44 @@
+name: Build
+
+on:
+  push
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+
+      - name: Checkout repository
+        uses: actions/checkout@master
+
+      - name: Build solution and generate NuGet package
+        run: name: NuGet Generation
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+
+      - name: Checkout repository
+        uses: actions/checkout@master
+        
+      - name: Restore
+        run: dotnet restore  
+        
+      - name: Build
+        run: dotnet build -c Release --no-restore
+        
+      - name: Publish 
+        run: dotnet publish EFCore.Postgres -c Release --no-build -o /tmp/output
+
+      - name: Add private GitHub registry to NuGet
+        run: nuget sources Add -Name "GPR" -Source "https://nuget.pkg.github.com/mortenrickirasmussen/index.json" -UserName mortenrickirasmussen -Password $REGISTRY_TOKEN
+        env: 
+          REGISTRY_TOKEN: ${{ secrets.REGISTRY_TOKEN }}
+          
+	      run: nuget push /tmp/output/EFCore.Postgres.nupkg -Source "GPR"

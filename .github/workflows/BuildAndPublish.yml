@@ -19,8 +19,14 @@ jobs:
         
       - name: Publish 
         run: dotnet publish EFCore.Postgres -c Release --no-build -o /tmp/output
+        
+      - name: Setup Nuget.exe
+        uses: warrenbuckley/Setup-Nuget@v1
 
       - name: Add private GitHub registry to NuGet
         run: nuget sources Add -Name "GPR" -Source "https://nuget.pkg.github.com/mortenrickirasmussen/index.json" -UserName mortenrickirasmussen -Password $REGISTRY_TOKEN
         env: 
           REGISTRY_TOKEN: ${{ secrets.REGISTRY_TOKEN }}
+          
+      - name: Push to registry
+        run: nuget push /tmp/output/EFCore.Postgres.nupkg -Source "GPR"

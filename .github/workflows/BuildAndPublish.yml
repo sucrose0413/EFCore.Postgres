@@ -24,7 +24,7 @@ jobs:
         uses: warrenbuckley/Setup-Nuget@v1
 
       - name: Add private GitHub registry to NuGet
-        run: nuget sources Add -Name "GPR" -Source "https://nuget.pkg.github.com/mortenrickirasmussen/index.json" -UserName "mortenrickirasmussen" -Password $REGISTRY_PASSWORD
+        run: nuget sources Add -Name "GPR" -Source "https://nuget.pkg.github.com/mortenrickirasmussen/index.json" -UserName "mortenrickirasmussen" -Password "$REGISTRY_PASSWORD"
         env: 
           REGISTRY_PASSWORD: ${{ secrets.REGISTRY_PASSWORD }}
           

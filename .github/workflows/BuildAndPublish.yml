@@ -18,7 +18,7 @@ jobs:
         run: dotnet build -c Release --no-restore
         
       - name: Publish 
-        run: dotnet publish EFCore.Postgres -c Release --no-build -o /tmp/output
+        run: dotnet publish EFCore.Postgres -c Release --no-build -o D:\tmp\output\
         
       - name: Setup Nuget.exe
         uses: warrenbuckley/Setup-Nuget@v1
@@ -27,4 +27,4 @@ jobs:
         run: nuget sources add -name "GPR" -Source https://nuget.pkg.github.com/mortenrickirasmussen/index.json -Username mortenrickirasmussen -Password ${{ secrets.REGISTRY_PASSWORD }}
           
       - name: Push to registry
-        run: nuget push /tmp/output/EFCore.Postgres.nupkg -Source "GPR"
+        run: nuget push D:\tmp\output\*.nupkg -Source "GPR"

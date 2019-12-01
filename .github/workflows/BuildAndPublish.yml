@@ -10,6 +10,11 @@ jobs:
 
       - name: Checkout repository
         uses: actions/checkout@master
+      
+      - name: Generate build number
+        uses: einaregilsson/build-number@v2 
+        with:
+          token: ${{secrets.REGISTRY_PASSWORD}}    
         
       - name: Restore
         run: dotnet restore  
@@ -18,7 +23,7 @@ jobs:
         run: dotnet build -c Release --no-restore
         
       - name: Publish 
-        run: dotnet pack EFCore.Postgres -c Release --no-build -o D:\tmp\output\
+        run: dotnet pack EFCore.Postgres -c Release --no-build -o D:\tmp\output\ /p:Version=1.0.$BUILD_NUMBER
         
       - name: Setup Nuget.exe
         uses: warrenbuckley/Setup-Nuget@v1

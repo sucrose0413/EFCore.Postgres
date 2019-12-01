@@ -25,7 +25,7 @@ jobs:
         run: dotnet build -c Release --no-restore
         
       - name: Publish 
-        run: dotnet pack EFCore.Postgres -c Release --no-build -o D:\tmp\output\ -p:PackageVersion=1.0.$BUILD_NUMBER
+        run: dotnet pack EFCore.Postgres -c Release --no-build -o D:\tmp\output\ -p:PackageVersion=1.0.${env:BUILD_NUMBER}
         
       - name: Setup Nuget.exe
         uses: warrenbuckley/Setup-Nuget@v1

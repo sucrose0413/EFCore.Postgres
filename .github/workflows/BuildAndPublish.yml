@@ -27,4 +27,4 @@ jobs:
         run: nuget sources add -name "GPR" -Source https://nuget.pkg.github.com/mortenrickirasmussen/index.json -Username mortenrickirasmussen -Password ${{ secrets.REGISTRY_PASSWORD }}
           
       - name: Push to registry
-        run: nuget push D:\tmp\output\EFCore.Postgres.nupkg -Source "GPR"
+        run: nuget push D:\tmp\output\*.nupkg -Source "GPR"

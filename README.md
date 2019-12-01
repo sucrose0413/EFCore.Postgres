@@ -14,6 +14,18 @@ var config = _configuration.GetSection("Postgres").Get<DatabaseSettings>();
 builder.UsePostgres<MyDbContext>(config);
 ```
 
+Be sure to setup your environment variables, these are the avilable ones
+
+``` cs
+        public string Hostname { get; set; }
+        public string Username { get; set; }
+        public string Password { get; set; }
+        public string Name { get; set; }
+        public bool DisableSSL { get; set; }
+        public int Port { get; set; } = 5432;
+        public bool TrustServerCertificate { get; set; } = false;
+```
+
 Create your DBContext
  
 ``` cs

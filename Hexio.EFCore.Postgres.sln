@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26124.0
 MinimumVisualStudioVersion = 15.0.26124.0
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFCore.Postgres", "EFCore.Postgres\EFCore.Postgres.csproj", "{2127DA25-F6A7-48DC-948E-21678D5CD090}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hexio.EFCore.Postgres", "Hexio.EFCore.Postgres\Hexio.EFCore.Postgres.csproj", "{2127DA25-F6A7-48DC-948E-21678D5CD090}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

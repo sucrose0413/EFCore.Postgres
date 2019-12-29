@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Infrastructure;
 
-namespace EFCore.Postgres
+namespace Hexio.EFCore.Postgres
 {
     public class OptionsBuilder
     {

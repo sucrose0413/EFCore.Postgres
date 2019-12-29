@@ -2,7 +2,7 @@ using System;
 using Autofac;
 using Microsoft.EntityFrameworkCore;
 
-namespace EFCore.Postgres
+namespace Hexio.EFCore.Postgres
 {
     public static class AutofacExtensions
     {

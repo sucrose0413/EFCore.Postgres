@@ -1,7 +1,7 @@
 using Autofac;
 using Microsoft.EntityFrameworkCore;
 
-namespace EFCore.Postgres
+namespace Hexio.EFCore.Postgres
 {
     public class DatabaseModule<T> : Module where T : DbContext
     {

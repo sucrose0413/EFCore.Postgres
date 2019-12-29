@@ -1,7 +1,7 @@
 using System.Reflection;
 using Npgsql;
 
-namespace EFCore.Postgres
+namespace Hexio.EFCore.Postgres
 {
     public class DatabaseSettings
     {

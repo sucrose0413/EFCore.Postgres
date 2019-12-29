@@ -2,7 +2,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 
-namespace EFCore.Postgres
+namespace Hexio.EFCore.Postgres
 {
     public static class DesignTimeDbContextFactory<T> where T : DbContext
     {

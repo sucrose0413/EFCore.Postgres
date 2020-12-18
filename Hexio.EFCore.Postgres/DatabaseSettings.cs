@@ -12,6 +12,7 @@ namespace Hexio.EFCore.Postgres
         public bool DisableSSL { get; set; }
         public int Port { get; set; } = 5432;
         public bool TrustServerCertificate { get; set; } = false;
+        public bool EnableRedshiftCompatibility { get; set; } = false;
         
         public string GetConnectionString()
         {
@@ -28,6 +29,7 @@ namespace Hexio.EFCore.Postgres
                 ApplicationName = applicationName,
                 TrustServerCertificate = TrustServerCertificate,
                 SslMode = DisableSSL ? SslMode.Disable : SslMode.Require,
+                ServerCompatibilityMode = EnableRedshiftCompatibility ? ServerCompatibilityMode.Redshift : ServerCompatibilityMode.None
             };
 
             return connectionBuilder.ConnectionString;
